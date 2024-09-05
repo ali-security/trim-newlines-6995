@@ -1,13 +1,26 @@
 'use strict';
 
 var fn = module.exports = function (x) {
-	return fn.end(fn.start(x));
-};
+    return fn.end(fn.start(x))
+}
 
 fn.start = function (x) {
-	return x.replace(/^[\r\n]+/, '');
+    var end = x.length;
+    var start = 0;
+
+    while (start < end && (x[start] === '\r' || x[start] === '\n')) {
+        start++;
+    }
+
+    return start > 0 ? x.slice(start, end) : x;
 };
 
 fn.end = function (x) {
-	return x.replace(/[\r\n]+$/, '');
+    var end = x.length;
+
+    while (end > 0 && (x[end - 1] === '\r' || x[end - 1] === '\n')) {
+        end--;
+    }
+
+    return end < x.length ? x.slice(0, end) : x;
 };

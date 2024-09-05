@@ -1,6 +1,6 @@
 {
   "name": "trim-newlines",
-  "version": "1.0.0",
+  "version": "1.0.0-sp1",
   "description": "Trim newlines from the start and/or end of a string",
   "license": "MIT",
   "repository": "sindresorhus/trim-newlines",
@@ -13,7 +13,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "xo && ava"
+    "test": "ava"
   },
   "files": [
     "index.js"
